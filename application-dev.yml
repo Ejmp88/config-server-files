@@ -1,0 +1,4 @@
+application:
+  author: Erick de Jesús Martínez
+encrypt:
+  key: erick-secrets
