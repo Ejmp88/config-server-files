@@ -1,0 +1,50 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:8090}
+
+### Eureka Client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
+      
+### Cloud Gateway configuration
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - StripPrefix=2
+            - MitocodeFilter=HEADER_KEY,HEADER_VALUE
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+
+### Actuator info (/actuator/info)
+info:
+  app:
+    app-name: Cloud Gateway Microservice
+    description: Microservicio para el ruteo de los microservicios
+    version: 1.0
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
