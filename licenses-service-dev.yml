@@ -59,3 +59,13 @@ management:
   health:
     env:
       enabled: true
+
+#OpenAPI Configuration
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
