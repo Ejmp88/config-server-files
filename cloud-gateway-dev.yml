@@ -21,10 +21,10 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product-service
-          uri: lb://product-service
+        - id: licenses-service
+          uri: lb://licenses-service
           predicates:
-            - Path=/api/product/**
+            - Path=/api/licenses/**
           filters:
             - StripPrefix=2
 
