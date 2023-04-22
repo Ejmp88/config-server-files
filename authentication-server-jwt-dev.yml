@@ -37,6 +37,12 @@ spring:
       password: '{cipher}e5d0f2927c49181b39fc14145383f24711ee0d3f511dd7ac5d32965a0ef36254'
       uri: mongodb://licencias:licencias@localhost:27017
       authentication-database: admin
+      
+config:
+  jwt:
+    accessTokenValidity: 1
+    privateKey: 2605f66d54d843b33263ac196066b036c877eb31336b531706afee45a235331720311da58d61764ddea76d3174b78e2a1724087206e071d1fff6eae1f462b404c0548e2a025475042df81182d3c0af4be355077cc8649f6937afd42aa7f4a01233745e169f82a49855ad9ecbe10738c00ac6b4fd2cab66e1b6c26b54ea0e8e28
+
 
 management:
   auditevents:
