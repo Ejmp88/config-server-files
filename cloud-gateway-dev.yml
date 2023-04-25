@@ -34,6 +34,20 @@ spring:
             - Path=/api/user/**
           filters:
             - StripPrefix=2
+        
+        - id: clients-service
+          uri: lb://clients-service
+          predicates:
+            - Path=/api/client/**
+          filters:
+            - StripPrefix=2
+        
+        - id: authentication-server-jwt
+          uri: lb://authentication-server-jwt
+          predicates:
+            - Path=/api/security/**
+          filters:
+            - StripPrefix=2
 
 config:
   security:
