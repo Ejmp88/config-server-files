@@ -38,6 +38,12 @@ spring:
       uri: mongodb://licencias:licencias@localhost:27017
       authentication-database: admin
 
+kafka:
+  licencias:
+    topic: licencias
+    server: 127.0.0.1
+    port: 9092
+
 management:
   auditevents:
     enabled: true
