@@ -22,7 +22,7 @@ eureka:
 ### Actuator info (/actuator/info)
 info:
   app:
-    app-name: Clients Service Microservice Desarrollo
+    app-name: Licenses Service Microservice Desarrollo
     description: Microservicio para el mantenimientos de las licencias 
     version: 1.0
 
