@@ -48,6 +48,28 @@ spring:
             - Path=/api/security/**
           filters:
             - StripPrefix=2
+            
+        - id: licenses-query-service
+          uri: lb://licenses-query-service
+          predicates:
+            - Path=/api/licenses-query/**
+          filters:
+            - StripPrefix=2
+
+        - id: user-query-service
+          uri: lb://user-query-service
+          predicates:
+            - Path=/api/user-query/**
+          filters:
+            - StripPrefix=2
+        
+        - id: clients-query-service
+          uri: lb://clients-query-service
+          predicates:
+            - Path=/api/client-query/**
+          filters:
+            - StripPrefix=2
+            
 
 config:
   security:
