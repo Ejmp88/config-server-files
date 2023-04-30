@@ -38,10 +38,11 @@ spring:
       uri: ${MONGODB.CONNECTION.URL:mongodb://licencias:licencias@localhost:27017}
       authentication-database: admin
 
+#127.0.0.1
 kafka:
   licencias:
     topic: ${KAFKA.TOPIC:licencias}
-    server: 127.0.0.1
+    server: host.docker.internal
     port: 9092
 
 management:
