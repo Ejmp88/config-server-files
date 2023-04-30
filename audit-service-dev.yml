@@ -5,7 +5,7 @@ server:
 kafka:
   licencias:
     topic: ${KAFKA.TOPIC:licencias}
-    server: broker
+    server: 127.0.0.1
     port: 9092
 
 ### Eureka Client configuration
