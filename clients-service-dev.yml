@@ -37,11 +37,12 @@ spring:
       password: '{cipher}e5d0f2927c49181b39fc14145383f24711ee0d3f511dd7ac5d32965a0ef36254'
       uri: ${MONGODB.CONNECTION.URL:mongodb://licencias:licencias@localhost:27017}
       authentication-database: admin
-      
+
+#127.0.0.1         
 kafka:
   licencias:
     topic: ${KAFKA.TOPIC:licencias}
-    server: 127.0.0.1
+    server: host.docker.internal
     port: 9092
 
 management:
