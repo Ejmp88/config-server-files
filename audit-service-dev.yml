@@ -1,11 +1,12 @@
 server:
   port: ${CUSTOM.SERVER.PORT:9010}
 
-#servidor kafka 127.0.0.1
+#server: 127.0.0.1
+#port: 9092
 kafka:
   licencias:
     topic: ${KAFKA.TOPIC:licencias}
-    server: 127.0.0.1
+    server: 172.18.0.7
     port: 9092
 
 ### Eureka Client configuration
