@@ -6,7 +6,7 @@ server:
 kafka:
   licencias:
     topic: ${KAFKA.TOPIC:licencias}
-    server: 172.18.0.7
+    server: host.docker.internal
     port: 9092
 
 ### Eureka Client configuration
