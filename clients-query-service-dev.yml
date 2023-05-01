@@ -1,0 +1,72 @@
+server:
+  port: ${CUSTOM.SERVER.PORT:9014}
+
+encrypt:
+  key: erick-secrets
+
+### Eureka Client configuration
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA.HOST.SERVER:http://localhost:8761/eureka/}
+    registerWithEureka: true
+    fetchRegistry: true
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: true
+
+### Actuator info (/actuator/info)
+info:
+  app:
+    app-name: Clients Query Service Microservice Desarrollo
+    description: Microservicio para consultar los clientes
+    version: 1.0
+
+### Mongo database configuration
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27018
+      database: '{cipher}0cf9a3f1332276664c149294a7098b1d728f3ccd8e0a3208142595323435a39d'
+      username: '{cipher}29da86ca2c1bba2baf76c8bb9790bd7b68e943c3d1658e01f807f590a67a4f89'
+      password: '{cipher}e5d0f2927c49181b39fc14145383f24711ee0d3f511dd7ac5d32965a0ef36254'
+      uri: ${MONGODB.CONNECTION.URL:mongodb://licencias:licencias@localhost:27018}
+      authentication-database: admin
+      
+
+management:
+  auditevents:
+    enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuator
+  endpoint:
+    health:
+      group:
+        custom:
+          include: diskSpace, ping, memory, mem
+          show-component: always
+          show-details: always
+  info:
+    env:
+      enabled: true
+  health:
+    env:
+      enabled: true
+
+#OpenAPI Configuration
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
